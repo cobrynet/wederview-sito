@@ -79,7 +79,8 @@ const footerServices = [
 
 export const PcEsportazione = (): JSX.Element => {
   return (
-    <div className="min-h-screen bg-white w-full">
+    <div className="min-h-screen bg-white w-full flex flex-col items-center">
+      <div className="w-full max-w-[1920px]">
         {/* Header */}
         <header className="sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center px-4 md:px-8 lg:px-[60px] py-4 md:py-[25px] bg-[#C8B094] bg-opacity-50 backdrop-blur-md transition-all duration-300">
           <a 
@@ -655,6 +656,7 @@ export const PcEsportazione = (): JSX.Element => {
           </div>
         </div>
         </footer>
+      </div>
     </div>
   );
 };
