@@ -654,7 +654,6 @@ export const PcEsportazione = (): JSX.Element => {
             PISCITELLI PATRIZIO
           </div>
         </div>
-        </div>
         </footer>
     </div>
   );
