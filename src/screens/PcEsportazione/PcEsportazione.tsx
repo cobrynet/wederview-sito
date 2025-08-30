@@ -79,8 +79,8 @@ const footerServices = [
 
 export const PcEsportazione = (): JSX.Element => {
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-[1920px]">
+    <div className="min-h-screen flex justify-center items-start">
+      <div className="w-full max-w-[1920px] mx-auto">
       <div className="relative">
         <div className="bg-white w-full h-full">
         {/* Header */}
