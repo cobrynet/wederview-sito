@@ -79,7 +79,7 @@ const footerServices = [
 
 export const PcEsportazione = (): JSX.Element => {
   return (
-    <div className="aspect-16-9">
+    <div>
       <div className="relative">
         <div className="bg-white w-full h-full">
         {/* Header */}
