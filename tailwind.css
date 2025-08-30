@@ -75,7 +75,10 @@
    BASE RESET + FULL SCREEN
    ========================= */
 @layer base {
-  html, body, #app { @apply h-full min-h-screen; }
+  html, body, #app { 
+    @apply h-full min-h-screen; 
+    scroll-behavior: smooth;
+  }
   * { @apply border-border; }
   body {
     @apply bg-background text-foreground;
@@ -93,6 +96,24 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    html { font-size: 14px; }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    html { font-size: 15px; }
+  }
+  
+  @media (min-width: 1025px) {
+    html { font-size: 16px; }
+  }
+
+  /* Touch-friendly interactions */
+  @media (max-width: 768px) {
+    button, a { min-height: 44px; min-width: 44px; }
   }
 }
 
