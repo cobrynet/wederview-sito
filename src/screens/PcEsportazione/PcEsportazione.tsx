@@ -86,7 +86,7 @@ export const PcEsportazione = (): JSX.Element => {
         <header className="sticky top-0 z-50 flex justify-between items-center px-[60px] py-[25px] bg-[#C8B094] bg-opacity-50 backdrop-blur-md transition-all duration-300">
           <a 
             href="#"
-            className="w-[114px] h-[50px] bg-[url(/vector.svg)] bg-cover cursor-pointer hover:brightness-0 hover:invert transition-all duration-200"
+            className="w-[114px] h-[50px] bg-[url(/vector.svg)] bg-cover cursor-pointer hover:opacity-80 transition-opacity duration-200"
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
