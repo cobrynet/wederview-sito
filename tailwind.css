@@ -2,9 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =========================
-   THEME TOKENS (light/dark)
-   ========================= */
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+
+  .aspect-16-9 {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 1920px;
+    margin: auto;
+    border: 1px solid #ccc;
+  }
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -35,6 +153,7 @@
     --destructive-foreground: 210 40% 98%;
 
     --ring: 215 20.2% 65.1%;
+
     --radius: 0.5rem;
   }
 
@@ -67,163 +186,18 @@
     --destructive-foreground: 210 40% 98%;
 
     --ring: 216 34% 17%;
+
     --radius: 0.5rem;
   }
 }
 
-/* =========================
-   BASE RESET + FULL SCREEN
-   ========================= */
 @layer base {
   * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    @apply border-border;
   }
-  
-  html, body { 
-    @apply h-full min-h-screen w-full; 
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-  }
-  
-  * { @apply border-border; }
-  
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  #app {
-    width: 100%;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-  }
-  
-  img, video { max-width: 100%; height: auto; }
-  
-  /* Global container for centering content */
-  .main-container {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-  }
-  
-  .content-wrapper {
-    width: 100%;
-    max-width: 1920px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  /* Responsive Typography */
-  @media (max-width: 768px) {
-    html { font-size: 14px; }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    html { font-size: 15px; }
-  }
-  
-  @media (min-width: 1025px) {
-    html { font-size: 16px; }
-  }
-  
-  /* Ultra-wide screens */
-  @media (min-width: 1921px) {
-    html { font-size: 18px; }
-    .content-wrapper {
-      max-width: 2560px;
-    }
-  }
-
-  /* Touch-friendly interactions */
-  @media (max-width: 768px) {
-    button, a { min-height: 44px; min-width: 44px; }
-  }
-  
-  /* Ensure full width on all devices */
-  @media (max-width: 320px) {
-    .content-wrapper {
-      padding: 0 8px;
-    }
-  }
-  
-  @media (min-width: 321px) and (max-width: 768px) {
-    .content-wrapper {
-      padding: 0 16px;
-    }
-  }
-  
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .content-wrapper {
-      padding: 0 24px;
-    }
-  }
-  
-  @media (min-width: 1025px) {
-    .content-wrapper {
-      padding: 0 32px;
-    }
   }
 }
-
-/* =========================
-   COMPONENT HELPERS
-   ========================= */
-@layer components {
-  .all-\[unset\] { all: unset; }
-  /* (rimosso .aspect-16-9: non serve più) */
-}
-
-/* =========================
-   ANIMATIONS / UTILITIES
-   ========================= */
-:root { --animate-spin: spin 1s linear infinite; }
-
-.animate-fade-in      { animation: fade-in 1s var(--animation-delay, 0s) ease forwards; }
-.animate-fade-up      { animation: fade-up 1s var(--animation-delay, 0s) ease forwards; }
-.animate-marquee      { animation: marquee var(--duration) infinite linear; }
-.animate-marquee-vertical { animation: marquee-vertical var(--duration) linear infinite; }
-.animate-shimmer      { animation: shimmer 8s infinite; }
-.animate-spin         { animation: var(--animate-spin); }
-
-@keyframes spin { to { transform: rotate(1turn); } }
-
-@keyframes image-glow {
-  0% { opacity: 0; animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1); }
-  10% { opacity: 0.7; animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99); }
-  100% { opacity: 0.4; }
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: none; }
-}
-
-@keyframes fade-up {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: none; }
-}
-
-@keyframes shimmer {
-  0%, 90%, 100% { background-position: calc(-100% - var(--shimmer-width)) 0; }
-  30%, 60%      { background-position: calc(100% + var(--shimmer-width)) 0; }
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-100% - var(--gap))); }
-}
-
-@keyframes marquee-vertical {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(calc(-100% - var(--gap))); }
-}
-
