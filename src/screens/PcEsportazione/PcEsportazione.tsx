@@ -669,6 +669,7 @@ export const PcEsportazione = (): JSX.Element => {
             </div>
           </div>
         </footer>
+            <h2 className="[font-family:'Montserrat',Helvetica] font-normal text-black text-base tracking-[0] leading-[normal]">
               Chi siamo
             </h2>
           </div>
