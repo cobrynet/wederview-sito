@@ -79,7 +79,8 @@ const footerServices = [
 
 export const PcEsportazione = (): JSX.Element => {
   return (
-    <div>
+    <div className="flex justify-center">
+      <div className="w-full max-w-[1920px]">
       <div className="relative">
         <div className="bg-white w-full h-full">
         {/* Header */}
@@ -656,6 +657,7 @@ export const PcEsportazione = (): JSX.Element => {
         </footer>
     </div>
     </div>
+      </div>
     </div>
   );
 };
