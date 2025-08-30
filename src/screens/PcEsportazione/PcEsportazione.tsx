@@ -669,37 +669,6 @@ export const PcEsportazione = (): JSX.Element => {
             </div>
           </div>
         </footer>
-        <div className="w-full max-w-7xl mx-auto px-4 md:px-8 lg:px-16 xl:px-20">
-          <div className="flex-1">
-            <h2 className="[font-family:'Montserrat',Helvetica] font-normal text-black text-base tracking-[0] leading-[normal]">
-              Chi siamo
-            </h2>
-          </div>
-          <div className="flex-1">
-            <div className="[font-family:'Montserrat',Helvetica] font-normal text-black text-base tracking-[0] leading-[normal]">
-              <span>
-                Wederview è uno studio specializzato nella produzione visiva per
-                il settore wedding.
-                <br />
-                <br />
-                Offriamo servizi integrati di fotografia, videografia e wedding
-                identity, con un approccio curato, coerente e su misura.
-                <br />
-                <br />
-                Dall'immagine coordinata agli elementi stampati, dalle riprese
-                al montaggio, progettiamo ogni contenuto visivo in linea con lo
-                stile e l'identità dell'evento.
-                <br />
-              </span>
-              <br />
-              <span className="[font-family:'Baskervville',Helvetica] italic text-xl">
-                Lavoriamo con precisione, senso estetico e attenzione al
-                dettaglio, per garantire un risultato di qualità e perfettamente
-                armonico.
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
     );
   };
