@@ -491,7 +491,6 @@ export const PcEsportazione = (): JSX.Element => {
                   </div>
                 </div>
               </div>
-              </div>
             </section>
 
             {/* Footer */}
