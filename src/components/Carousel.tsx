@@ -51,7 +51,7 @@ export const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] overflow-hidden rounded-lg shadow-lg">
       {/* Images */}
       <div 
         className="flex transition-transform duration-500 ease-in-out h-full"
