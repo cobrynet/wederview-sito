@@ -51,7 +51,7 @@ export const Carousel: React.FC = () => {
   };
 
   return (
-    <div className="relative w-full h-[250px] md:h-[400px] lg:h-[500px] xl:h-[600px] overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-lg shadow-lg">
       {/* Images */}
       <div 
         className="flex transition-transform duration-500 ease-in-out h-full"
@@ -71,27 +71,27 @@ export const Carousel: React.FC = () => {
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
-        className="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white p-1.5 md:p-2 rounded-full transition-all duration-200 hover:scale-110"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200 hover:scale-110"
         aria-label="Previous image"
       >
-        <ChevronLeft size={20} className="md:w-6 md:h-6" />
+        <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={goToNext}
-        className="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white p-1.5 md:p-2 rounded-full transition-all duration-200 hover:scale-110"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white p-2 rounded-full transition-all duration-200 hover:scale-110"
         aria-label="Next image"
       >
-        <ChevronRight size={20} className="md:w-6 md:h-6" />
+        <ChevronRight size={24} />
       </button>
 
       {/* Dots Indicator */}
-      <div className="absolute bottom-2 md:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 md:space-x-2">
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {carouselImages.map((_, index) => (
           <button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 ${
+            className={`w-3 h-3 rounded-full transition-all duration-200 ${
               index === currentIndex 
                 ? 'bg-white scale-110' 
                 : 'bg-white/50 hover:bg-white/70'
