@@ -6,13 +6,6 @@
   .all-\[unset\] {
     all: unset;
   }
-
-  .aspect-16-9 {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    max-width: 1920px;
-    margin: auto;
-  }
 }
 
 :root {
