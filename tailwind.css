@@ -2,10 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+/* 
+  xs: 0px (default)
+  sm: 640px (small tablets, large phones landscape)
+  md: 768px (tablets)
+  lg: 1024px (laptops, small desktops)
+  xl: 1280px (desktops)
+  2xl: 1536px (large desktops, ultrawide)
+*/
+
 /* ---------- COMPONENTS ---------- */
 @layer components {
   .all-\[unset\] {
     all: unset;
+  }
+  
+  /* Responsive container with fluid padding */
+  .responsive-container {
+    @apply w-full max-w-none px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
+  }
+  
+  /* Responsive section spacing */
+  .section-spacing {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+  
+  /* Responsive text sizing */
+  .heading-primary {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+  
+  .heading-secondary {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .heading-tertiary {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+  }
+  
+  .body-text {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+  
+  .small-text {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+  
+  /* Touch-friendly interactive elements */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] flex items-center justify-center;
+  }
+  
+  /* Responsive grid layouts */
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12;
+  }
+  
+  .responsive-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8;
+  }
+  
+  .responsive-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8;
   }
 }
 
@@ -140,23 +199,203 @@
     box-sizing: border-box;
   }
 
-  /* altezza piena per tutta l'app */
+  /* Full height for entire app */
   html, body, #app {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 
-  /* niente margini e altezza dinamica per iOS (notch) */
+  /* Dynamic height for iOS (notch) and full viewport */
   body {
     @apply bg-background text-foreground;
-    margin: 0;
     min-height: 100dvh;
+    min-height: 100vh; /* fallback */
     font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
-  /* media fluidi */
+  /* Responsive media */
   img, video, canvas, svg {
     display: block;
     max-width: 100%;
     height: auto;
+  }
+  
+  /* Ensure images don't break layout */
+  img {
+    object-fit: cover;
+  }
+  
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* ---------- RESPONSIVE UTILITIES ---------- */
+@layer utilities {
+  /* Responsive spacing utilities */
+  .space-responsive {
+    @apply space-y-4 sm:space-y-6 md:space-y-8 lg:space-y-12;
+  }
+  
+  /* Responsive padding utilities */
+  .px-responsive {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20;
+  }
+  
+  .py-responsive {
+    @apply py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24;
+  }
+  
+  /* Full viewport utilities */
+  .h-screen-safe {
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+  
+  .min-h-screen-safe {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  /* Responsive text utilities */
+  .text-responsive-xs {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+  
+  .text-responsive-sm {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .text-responsive-base {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl;
+  }
+}
+
+/* ---------- DEVICE-SPECIFIC OPTIMIZATIONS ---------- */
+
+/* Mobile phones (320px - 767px) */
+@media (max-width: 767px) {
+  .mobile-stack {
+    @apply flex-col space-y-4;
+  }
+  
+  .mobile-center {
+    @apply text-center items-center justify-center;
+  }
+  
+  .mobile-full {
+    @apply w-full;
+  }
+  
+  /* Larger touch targets for mobile */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .tablet-grid-2 {
+    @apply grid-cols-2;
+  }
+  
+  .tablet-flex-row {
+    @apply flex-row;
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (orientation: landscape) and (max-height: 500px) {
+  .landscape-compact {
+    @apply py-4;
+  }
+  
+  .landscape-header {
+    @apply py-2;
+  }
+}
+
+/* Large screens (1440px+) */
+@media (min-width: 1440px) {
+  .large-screen-spacing {
+    @apply px-24 py-32;
+  }
+  
+  .large-screen-text {
+    @apply text-xl;
+  }
+}
+
+/* Ultra-wide screens (1920px+) */
+@media (min-width: 1920px) {
+  .ultrawide-container {
+    max-width: 1800px;
+    margin: 0 auto;
+  }
+  
+  .ultrawide-spacing {
+    @apply px-32 py-40;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
   }
 }

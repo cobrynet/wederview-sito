@@ -136,10 +136,8 @@ export const Carousel: React.FC<CarouselProps> = ({
       onPointerUp={onPointerUp}
       style={{ touchAction: "pan-y" }}
       className={[
-        // contenitore fluido: piena larghezza, altezza calcolata via aspect ratio
         "relative w-full overflow-hidden rounded-lg shadow-lg",
-        // fallback minima per schermi molto stretti; poi manteniamo 16/9
-        "min-h-[240px] sm:min-h-0 aspect-[4/3] sm:aspect-[16/9] max-h-[70vh]",
+        "h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px]",
         className,
       ].join(" ")}
     >
@@ -167,22 +165,22 @@ export const Carousel: React.FC<CarouselProps> = ({
       {/* Frecce */}
       <button
         onClick={goPrev}
-        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/40 text-white p-1.5 md:p-2 rounded-full transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/60"
+        className="absolute left-2 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/40 text-white p-2 sm:p-2.5 md:p-3 rounded-full transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/60 touch-target"
         aria-label="Slide precedente"
       >
-        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
       </button>
 
       <button
         onClick={goNext}
-        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/40 text-white p-1.5 md:p-2 rounded-full transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/60"
+        className="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/40 text-white p-2 sm:p-2.5 md:p-3 rounded-full transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white/60 touch-target"
         aria-label="Slide successiva"
       >
-        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-2 md:bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 md:gap-2">
+      <div className="absolute bottom-3 sm:bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-2.5 md:gap-3">
         {images.map((_, i) => {
           const active = i === currentIndex;
           return (
@@ -192,7 +190,7 @@ export const Carousel: React.FC<CarouselProps> = ({
               aria-label={`Vai alla slide ${i + 1}`}
               aria-current={active ? "true" : undefined}
               className={[
-                "w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60",
+                "w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/60 touch-target",
                 active ? "bg-white scale-110" : "bg-white/50 hover:bg-white/70",
               ].join(" ")}
             />
