@@ -206,34 +206,32 @@ export const PcEsportazione = (): JSX.Element => {
         <div className="absolute bg-[#777777] w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:w-[75%] h-[60%] sm:h-[65%] md:h-[70%] lg:h-[75%] left-1/2 transform -translate-x-1/2"></div>
         
         <div className="relative z-10 responsive-container py-8 sm:py-12 md:py-16">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <div className="flex-1 flex justify-center lg:justify-start">
-              <div className="relative max-w-[400px] sm:max-w-[500px] lg:max-w-[600px]">
-                <img
-                  className="w-full h-auto"
-                  alt="Frame 1"
-                  src="/frame-1.svg"
-                />
-                <div className="absolute inset-0 flex flex-col justify-center items-center p-4 sm:p-6 md:p-8">
-                  <h3 className="[font-family:'Baskervville_SC',Helvetica] font-normal text-white text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-[0] leading-[normal] mb-3 sm:mb-4 text-center">
-                    PRODUZIONE VIDEO CINEMATOGRAFICA
-                  </h3>
-                  <div className="[font-family:'Baskervville',Helvetica] font-normal small-text tracking-[0] leading-relaxed text-center max-w-[90%]">
-                    <span className="italic text-white text-base sm:text-lg md:text-xl">
-                      Realizzeremo per voi un vero film d'amore.
-                      <br />
-                    </span>
+          <div className="flex justify-center">
+            <div className="relative max-w-[400px] sm:max-w-[500px] lg:max-w-[600px]">
+              <img
+                className="w-full h-auto"
+                alt="Frame 1"
+                src="/frame-1.svg"
+              />
+              <div className="absolute inset-0 flex flex-col justify-center items-center p-4 sm:p-6 md:p-8">
+                <h3 className="[font-family:'Baskervville_SC',Helvetica] font-normal text-white text-lg sm:text-xl md:text-2xl lg:text-3xl tracking-[0] leading-[normal] mb-3 sm:mb-4 text-center">
+                  PRODUZIONE VIDEO CINEMATOGRAFICA
+                </h3>
+                <div className="[font-family:'Baskervville',Helvetica] font-normal small-text tracking-[0] leading-relaxed text-center max-w-[90%]">
+                  <span className="italic text-white text-base sm:text-lg md:text-xl">
+                    Realizzeremo per voi un vero film d'amore.
                     <br />
-                    <span className="[font-family:'Montserrat',Helvetica] text-white text-xs sm:text-sm md:text-base">
-                      Due operatori professionisti vi accompagneranno dalla
-                      preparazione fino al gran finale della giornata, cogliendo
-                      ogni emozione, ogni sorriso e ogni dettaglio con uno stile
-                      narrativo cinematografico.
-                      <br />
-                      Ogni ripresa sarà studiata per raccontare con eleganza e
-                      autenticità la vostra storia.
-                    </span>
-                  </div>
+                  </span>
+                  <br />
+                  <span className="[font-family:'Montserrat',Helvetica] text-white text-xs sm:text-sm md:text-base">
+                    Due operatori professionisti vi accompagneranno dalla
+                    preparazione fino al gran finale della giornata, cogliendo
+                    ogni emozione, ogni sorriso e ogni dettaglio con uno stile
+                    narrativo cinematografico.
+                    <br />
+                    Ogni ripresa sarà studiata per raccontare con eleganza e
+                    autenticità la vostra storia.
+                  </span>
                 </div>
               </div>
             </div>
